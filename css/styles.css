@@ -1,0 +1,43 @@
+/* 
+Project 1 - Ajax
+Rapid Application Development - Spring 2014
+Arissa Brown
+https://github.com/recked/
+*/
+/*
+Variables
+======================
+*/
+/*
+Layout
+======================
+*/
+html,
+body {
+  height: 100%;
+}
+
+/* Wrapper for page content to push down footer */
+#nav {
+  min-height: 55px;
+  background: #cccccc;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 5;
+}
+
+#sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  padding: 70px 20px 20px;
+  background-color: #eeeeee;
+  border-right: 1px solid #eee;
+}
