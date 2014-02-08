@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php require( "includes/espn.php");?>
+<?php require("includes/espn.php");?>
 
 <head>
     <meta charset="utf-8">

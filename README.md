@@ -24,3 +24,9 @@ Rapid Application Development
 2/7/2014
 
 - Bunch of JavaScript stuff. See commit
+
+2/8/2014
+
+- More JavaScript stuff. JSHint really makes me feel bad.
+- Correctly writes team news to JSON file by team id instead of position in array
+- Displays name, location, and arena of team on click
