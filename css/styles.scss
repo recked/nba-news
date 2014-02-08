@@ -41,7 +41,7 @@ body {
 }
 #sidebar {
     position: fixed;
-    width: 200px;
+    width: 250px;
     height: 100%;
     top: 0;
     left: 0;
@@ -50,4 +50,14 @@ body {
     padding: 70px 20px 20px;
     background-color: $sec;
     border-right: 1px solid #eee;
+    li {
+        list-style: none;
+        margin: 5px 0 5px 0;
+    }
 }
+/*
+Styles for the views
+======================
+*/
+
+#heading {}
