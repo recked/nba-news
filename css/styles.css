@@ -12,15 +12,14 @@ Variables
 Layout
 ======================
 */
-html,
-body {
-  height: 100%;
-}
-
 /* Wrapper for page content to push down footer */
+/* 
+Navbar 
+======================
+*/
 #nav {
   min-height: 55px;
-  background: #cccccc;
+  background: #12275f;
   display: block;
   top: 0;
   left: 0;
@@ -28,27 +27,136 @@ body {
   position: fixed;
   z-index: 5;
 }
+#nav #credit {
+  float: right;
+  margin: 7px;
+}
+#nav #credit a {
+  background-image: url("http://a.espncdn.com/i/apis/attribution/espn-api-red_150.png");
+  width: 150px;
+  height: 47px;
+  display: block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+@media screen and (max-width: 767px) {
+  #nav #credit a {
+    background-image: url("http://a.espncdn.com/i/apis/attribution/espn-red_50.png");
+    width: 50px;
+    height: 14px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+}
+#nav #title {
+  padding: 15px;
+  font-size: 2em;
+  color: #cc0011;
+  float: left;
+  font-weight: 800;
+}
+@media screen and (max-width: 767px) {
+  #nav #title {
+    padding: 0;
+    margin-top: 13px;
+  }
+}
+#nav #mobile {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  #nav #mobile {
+    display: block;
+    float: left;
+    margin: 15px;
+    background: transparent;
+    border: solid 1px #cc0011;
+    position: relative;
+    height: 20px;
+    padding: 6px 8px;
+  }
+  #nav #mobile:hover {
+    background: #cc0011;
+  }
+  #nav #mobile:hover .icon {
+    background: #fff;
+  }
+  #nav #mobile .icon {
+    display: block;
+    width: 22px;
+    height: 3px;
+    margin-bottom: 5px;
+    background: #cc0011;
+  }
+}
 
+/* 
+Sidebar 
+======================
+*/
 #sidebar {
   position: fixed;
-  width: 250px;
+  width: 200px;
   height: 100%;
   top: 0;
   left: 0;
   bottom: 0;
   display: block;
   padding: 70px 20px 20px;
-  background-color: #eeeeee;
+  background-color: #3b3b3b;
+  color: #ccc;
   border-right: 1px solid #eee;
 }
+@media screen and (max-width: 767px) {
+  #sidebar {
+    left: -1000px;
+  }
+}
+#sidebar ul {
+  padding-left: 0;
+  margin-left: -20px;
+  margin-right: -20px;
+}
 #sidebar li {
-  list-style: none;
+  list-style-type: none;
   margin: 5px 0 5px 0;
+  padding: 3px 0 3px 35px;
+}
+#sidebar li:hover {
+  background: #cc0011;
+  cursor: pointer;
+}
+#sidebar .active {
+  background: #cc0011;
+}
+#sidebar #github {
+  margin-top: 50px;
+}
+#sidebar #github a {
+  text-decoration: none;
+  color: #cc0011;
+}
+#sidebar #github a:hover {
+  color: #12275f;
 }
 
+/* 
+Content container + Styles for the view
+============================================
+*/
 #content {
-  margin-left: 25%;
-  margin-top: 65px;
+  margin-left: 260px;
+  margin-top: 85px;
+}
+@media screen and (max-width: 767px) {
+  #content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#content #heading {
+  margin-bottom: 10px;
 }
 #content #heading h2 {
   display: inline;
@@ -57,8 +165,153 @@ body {
 #content #heading h3 {
   display: inline;
 }
+@media screen and (max-width: 767px) {
+  #content #heading h3 {
+    display: block;
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #content #heading {
+    margin: 0 10px 10px 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #content #news {
+    margin: 0 10px 0 10px;
+  }
+}
+#content #news .articles {
+  float: left;
+  clear: both;
+  margin: 10px 0 10px 0;
+}
+#content #news .title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#content #news .date {
+  font-weight: bold;
+}
+#content #news .more {
+  margin-left: 10px;
+}
 
-/*
-Styles for the views
-======================
+/* 
+CSS Loader. Credit: http://codepen.io/tmyg/pen/bwLom 
+==================================================================
 */
+#spinner {
+  width: 50px;
+  height: 50px;
+  background: #aaa;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+
+#spinner:after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  background: #fff;
+  top: 10%;
+  left: 10%;
+}
+
+#spinner span em {
+  background: #cc0011;
+  -webkit-animation-duration: 3s;
+}
+
+/* No need to edit below this line */
+@-webkit-keyframes rotate-rt {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-lt {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+#spinner {
+  border-radius: 100%;
+  position: relative;
+}
+
+#spinner span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+#spinner span:first-child {
+  left: 0;
+}
+
+#spinner span:last-child {
+  left: 50%;
+}
+
+#spinner span em {
+  border-radius: 999px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+#spinner span:first-child em {
+  left: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-animation-name: rotate-lt;
+  -webkit-transform-origin: 0 50%;
+}
+
+#spinner span:last-child em {
+  left: -100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-animation-name: rotate-rt;
+  -webkit-transform-origin: 100% 50%;
+}

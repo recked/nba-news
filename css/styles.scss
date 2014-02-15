@@ -11,12 +11,13 @@ Variables
 */
 
 //Media query varibles 
+ //$phone:480px;
  $phone:767px;
  $desktop:768px;
 //Color Scheme vars. Filler for now
- $main:#ccc;
- $sec:#eee;
- $accent:#bbb;
+ $main:#12275f;
+ $sec:#3b3b3b;
+ $accent:#c01;
 
 /*
 Layout
@@ -25,9 +26,15 @@ Layout
 
 html,
 body {
-    height: 100%;
+    //height: 100%;
+
 }
 /* Wrapper for page content to push down footer */
+
+/* 
+Navbar 
+======================
+*/
 
 #nav {
     min-height: 55px;
@@ -38,10 +45,72 @@ body {
     right: 0;
     position: fixed;
     z-index: 5;
+    #credit {
+        float: right;
+        margin: 7px;
+        a {
+            background-image: url('http://a.espncdn.com/i/apis/attribution/espn-api-red_150.png');
+            width: 150px;
+            height: 47px;
+            display: block;
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+            @media screen and (max-width: $phone) {
+                background-image: url('http://a.espncdn.com/i/apis/attribution/espn-red_50.png');
+                width: 50px;
+                height: 14px;
+                margin-top: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    #title {
+        padding: 15px;
+        font-size: 2em;
+        color: $accent;
+        float: left;
+        font-weight: 800;
+        @media screen and (max-width: $phone) {
+            padding: 0;
+            margin-top: 13px;
+        }
+    }
+    #mobile {
+        display: none;
+        @media screen and (max-width: $phone) {
+            display: block;
+            float: left;
+            margin: 15px;
+            background: transparent;
+            border: solid 1px #cc0011;
+            position: relative;
+            height: 20px;
+            padding: 6px 8px;
+            &:hover{
+                background:$accent;
+                .icon{
+                     background: #fff;
+                }
+            }
+            .icon {
+                display: block;
+                width: 22px;
+                height: 3px;
+                margin-bottom: 5px;
+                background: $accent;
+            }
+        }
+    }
 }
+/* 
+Sidebar 
+======================
+*/
+
 #sidebar {
     position: fixed;
-    width: 250px;
+    width: 200px;
     height: 100%;
     top: 0;
     left: 0;
@@ -49,28 +118,176 @@ body {
     display: block;
     padding: 70px 20px 20px;
     background-color: $sec;
+    color: #ccc;
     border-right: 1px solid #eee;
+    @media screen and (max-width: $phone) {
+        left: -1000px;
+    }
+    ul {
+        padding-left: 0;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
     li {
-        list-style: none;
+        list-style-type: none;
         margin: 5px 0 5px 0;
+        padding: 3px 0 3px 35px;
+    }
+    li:hover {
+        background: $accent;
+        cursor: pointer;
+    }
+    .active {
+        background: $accent;
+    }
+    #github {
+        margin-top: 50px;
+        a {
+            text-decoration: none;
+            color: $accent;
+        }
+        a:hover {
+            color: $main;
+        }
     }
 }
+/* 
+Content container + Styles for the view
+============================================
+*/
+
 #content {
-    margin-left: 25%;
-    margin-top: 65px;
+    margin-left: 260px;
+    margin-top: 85px;
+    @media screen and (max-width: $phone) {
+        margin-left: auto;
+        margin-right: auto;
+    }
     #heading {
+        margin-bottom: 10px;
         h2 {
             display: inline;
             margin-right: 15px;
         }
         h3 {
             display: inline;
+            @media screen and (max-width: $phone) {
+                display: block;
+                margin-top: 0px;
+            }
+        }
+        @media screen and (max-width: $phone) {
+            margin: 0 10px 10px 10px;
+        }
+    }
+    #news {
+        @media screen and (max-width: $phone) {
+            margin: 0 10px 0 10px;
+        }
+        //Classes inside of news list
+        .articles {
+            float: left;
+            clear: both;
+            margin: 10px 0 10px 0;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .description {} .date {font-weight: bold;} .more {
+            margin-left: 10px;
         }
     }
 }
-/*
-Styles for the views
-======================
+
+/* 
+CSS Loader. Credit: http://codepen.io/tmyg/pen/bwLom 
+==================================================================
 */
 
-#heading {}
+
+#spinner {
+  width: 50px;
+  height: 50px;
+  background: #aaa;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+#spinner:after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  background: #fff;
+  top: 10%;
+  left: 10%;
+}
+
+#spinner span em {
+  background: #c01/*#0e728e*/;
+  -webkit-animation-duration: 3s; 
+}
+
+/* No need to edit below this line */
+
+@-webkit-keyframes rotate-rt {
+  0% {    -webkit-transform: rotate(0deg); }
+  25% {   -webkit-transform: rotate(180deg); }
+  50% {   -webkit-transform: rotate(180deg); }
+  75% {   -webkit-transform: rotate(360deg); }
+  100% {  -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes rotate-lt {
+  0% {    -webkit-transform: rotate(0deg); }
+  25% {   -webkit-transform: rotate(0deg); }
+  50% {   -webkit-transform: rotate(180deg); }
+  75% {   -webkit-transform: rotate(180deg); }
+  100% {  -webkit-transform: rotate(360deg); }
+}
+
+#spinner {
+  border-radius: 100%;
+  position: relative;
+}
+
+#spinner span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+#spinner span:first-child {
+  left: 0;
+}
+
+#spinner span:last-child {
+  left: 50%;
+}
+
+#spinner span em {
+  border-radius: 999px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+#spinner span:first-child em {
+  left: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-animation-name: rotate-lt; 
+  -webkit-transform-origin: 0 50%;
+}
+
+#spinner span:last-child em {
+  left: -100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-animation-name: rotate-rt; 
+  -webkit-transform-origin: 100% 50%;
+ }

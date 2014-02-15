@@ -12,17 +12,41 @@
 <body>
 
     <div id="wrap">
-        <div id="nav"></div>
+        <div id="nav">
+            <div id="mobile">
+                <!--Mobile menu button -->
+                <!--<span>&#9776;</span>-->
+                <span class="icon"></span>
+                <span class="icon"></span>
+                <span class="icon"></span>
+            </div>
+            <div id="title">NBA News</div>
+            <div id="credit">
+                <a href="http://espn.go.com/" target="_blank">ESPN</a>
+            </div>
+        </div>
         <div class="container">
             <div id="sidebar">
-                <!-- <a href="#" id="click">Click</a>-->
-                <!-- This will get filled with items from json? -->
-            </div>
-            <div id="mobile">
-                <!--Mobile menu/sidebar thing -->
+                <div id="select">
+                    <!-- This will get filled with items from json -->
+                    <ul id="start">
+                        <li id="east">Eastern Conference</li>
+                        <li id="west">Western Conference</li>
+                    </ul>
+                </div>
+
+                <div id="github">View full source on
+                    <a href="https://github.com/recked/nba-news" target="_blank">GitHub</a>
+                </div>
+
             </div>
             <div id="content">
                 <!-- various content stuff -->
+                <div id="intro">
+                    <h1>Welcome to NBA News</h1>
+                    <h3 id="in">Select a conference from the menu</h3>
+                </div>
+
             </div>
             <!-- end content-->
         </div>

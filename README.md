@@ -30,3 +30,21 @@ Rapid Application Development
 - More JavaScript stuff. JSHint really makes me feel bad.
 - Correctly writes team news to JSON file by team id instead of position in array
 - Displays name, location, and arena of team on click
+- Loads news articles in content view (unstyled)
+- Links to full article (new tab/window)
+
+2/11/2014
+
+- Styled navbar, sidebar
+- Link to ESPN as specified by their API
+- Semi-responsive
+
+2/14/2014
+
+- Responsive
+- Styled
+
+2/15/2014
+
+- CSS loader added
+- Submitted
