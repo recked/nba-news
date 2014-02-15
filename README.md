@@ -1,6 +1,8 @@
 #Readme
 Basketball News - Information from ESPN about the NBA's 30 teams
 
+[Link to live project](http://sulley.cah.ucf.edu/~ar400093/dig4503/assignments/assignment01/page_index.html)
+
 ---
 Project 1 - Ajax
 Rapid Application Development
