@@ -40,7 +40,7 @@ Navbar
   text-indent: 100%;
   white-space: nowrap;
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #nav #credit a {
     background-image: url("http://a.espncdn.com/i/apis/attribution/espn-red_50.png");
     width: 50px;
@@ -56,7 +56,11 @@ Navbar
   float: left;
   font-weight: 800;
 }
-@media screen and (max-width: 767px) {
+#nav #title a {
+  text-decoration: none;
+  color: #cc0011;
+}
+@media all and (max-width: 767px) {
   #nav #title {
     padding: 0;
     margin-top: 13px;
@@ -65,7 +69,7 @@ Navbar
 #nav #mobile {
   display: none;
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #nav #mobile {
     display: block;
     float: left;
@@ -108,7 +112,7 @@ Sidebar
   color: #ccc;
   border-right: 1px solid #eee;
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #sidebar {
     left: -1000px;
   }
@@ -130,6 +134,19 @@ Sidebar
 #sidebar .active {
   background: #cc0011;
 }
+#sidebar #start {
+  display: block;
+}
+#sidebar #back {
+  display: none;
+}
+#sidebar #back a {
+  text-decoration: none;
+  color: #cc0011;
+}
+#sidebar #back a:hover {
+  color: #ccc;
+}
 #sidebar #github {
   margin-top: 50px;
 }
@@ -138,7 +155,7 @@ Sidebar
   color: #cc0011;
 }
 #sidebar #github a:hover {
-  color: #12275f;
+  color: #ccc;
 }
 
 /* 
@@ -149,7 +166,7 @@ Content container + Styles for the view
   margin-left: 260px;
   margin-top: 85px;
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #content {
     margin-left: auto;
     margin-right: auto;
@@ -165,18 +182,18 @@ Content container + Styles for the view
 #content #heading h3 {
   display: inline;
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #content #heading h3 {
     display: block;
     margin-top: 0px;
   }
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #content #heading {
     margin: 0 10px 10px 10px;
   }
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #content #news {
     margin: 0 10px 0 10px;
   }
@@ -201,6 +218,121 @@ Content container + Styles for the view
 CSS Loader. Credit: http://codepen.io/tmyg/pen/bwLom 
 ==================================================================
 */
+#spin {
+  width: 50px;
+  height: 50px;
+  background: #aaa;
+  margin: 0 auto;
+  position: relative;
+  display: none;
+}
+
+#spin:after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  background: #3b3b3b;
+  top: 10%;
+  left: 10%;
+}
+
+#spin span em {
+  background: #cc0011;
+  -webkit-animation-duration: 3s;
+}
+
+/* No need to edit below this line */
+@-webkit-keyframes rotate-rt {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-lt {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+#spin {
+  border-radius: 100%;
+  position: relative;
+}
+
+#spin span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+#spin span:first-child {
+  left: 0;
+}
+
+#spin span:last-child {
+  left: 50%;
+}
+
+#spin span em {
+  border-radius: 999px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+#spin span:first-child em {
+  left: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-animation-name: rotate-lt;
+  -webkit-transform-origin: 0 50%;
+}
+
+#spin span:last-child em {
+  left: -100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-animation-name: rotate-rt;
+  -webkit-transform-origin: 100% 50%;
+}
+
 #spinner {
   width: 50px;
   height: 50px;

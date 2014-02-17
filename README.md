@@ -50,3 +50,8 @@ Rapid Application Development
 
 - CSS loader added
 - Submitted
+
+2/17/2014
+
+- CSS loader added to team list
+- Added a way to go back to the conferences without refreshing the page

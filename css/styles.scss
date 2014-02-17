@@ -56,7 +56,7 @@ Navbar
             overflow: hidden;
             text-indent: 100%;
             white-space: nowrap;
-            @media screen and (max-width: $phone) {
+            @media all and (max-width: $phone) {
                 background-image: url('http://a.espncdn.com/i/apis/attribution/espn-red_50.png');
                 width: 50px;
                 height: 14px;
@@ -71,14 +71,18 @@ Navbar
         color: $accent;
         float: left;
         font-weight: 800;
-        @media screen and (max-width: $phone) {
+        a{ 
+            text-decoration: none;
+            color: $accent;
+        }
+        @media all and (max-width: $phone) {
             padding: 0;
             margin-top: 13px;
         }
     }
     #mobile {
         display: none;
-        @media screen and (max-width: $phone) {
+        @media all and (max-width: $phone) {
             display: block;
             float: left;
             margin: 15px;
@@ -120,7 +124,7 @@ Sidebar
     background-color: $sec;
     color: #ccc;
     border-right: 1px solid #eee;
-    @media screen and (max-width: $phone) {
+    @media all and (max-width: $phone) {
         left: -1000px;
     }
     ul {
@@ -140,6 +144,19 @@ Sidebar
     .active {
         background: $accent;
     }
+    #start{
+        display: block;
+    }
+    #back{
+        display: none;
+        a{
+            text-decoration: none;
+            color: $accent;
+        }
+        a:hover {
+            color: #ccc;
+        }
+    }
     #github {
         margin-top: 50px;
         a {
@@ -147,7 +164,7 @@ Sidebar
             color: $accent;
         }
         a:hover {
-            color: $main;
+            color: #ccc;
         }
     }
 }
@@ -159,7 +176,7 @@ Content container + Styles for the view
 #content {
     margin-left: 260px;
     margin-top: 85px;
-    @media screen and (max-width: $phone) {
+    @media all and (max-width: $phone) {
         margin-left: auto;
         margin-right: auto;
     }
@@ -171,17 +188,17 @@ Content container + Styles for the view
         }
         h3 {
             display: inline;
-            @media screen and (max-width: $phone) {
+            @media all and (max-width: $phone) {
                 display: block;
                 margin-top: 0px;
             }
         }
-        @media screen and (max-width: $phone) {
+        @media all and (max-width: $phone) {
             margin: 0 10px 10px 10px;
         }
     }
     #news {
-        @media screen and (max-width: $phone) {
+        @media all and (max-width: $phone) {
             margin: 0 10px 0 10px;
         }
         //Classes inside of news list
@@ -204,6 +221,95 @@ Content container + Styles for the view
 CSS Loader. Credit: http://codepen.io/tmyg/pen/bwLom 
 ==================================================================
 */
+
+#spin {
+  width: 50px;
+  height: 50px;
+  background: #aaa;
+  margin: 0 auto; 
+  position: relative;
+  display: none;
+}
+#spin:after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  background: $sec;
+  top: 10%;
+  left: 10%;
+}
+
+#spin span em {
+  background: #c01/*#0e728e*/;
+  -webkit-animation-duration: 3s; 
+}
+
+/* No need to edit below this line */
+
+@-webkit-keyframes rotate-rt {
+  0% {    -webkit-transform: rotate(0deg); }
+  25% {   -webkit-transform: rotate(180deg); }
+  50% {   -webkit-transform: rotate(180deg); }
+  75% {   -webkit-transform: rotate(360deg); }
+  100% {  -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes rotate-lt {
+  0% {    -webkit-transform: rotate(0deg); }
+  25% {   -webkit-transform: rotate(0deg); }
+  50% {   -webkit-transform: rotate(180deg); }
+  75% {   -webkit-transform: rotate(180deg); }
+  100% {  -webkit-transform: rotate(360deg); }
+}
+
+#spin {
+  border-radius: 100%;
+  position: relative;
+}
+
+#spin span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+#spin span:first-child {
+  left: 0;
+}
+
+#spin span:last-child {
+  left: 50%;
+}
+
+#spin span em {
+  border-radius: 999px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+#spin span:first-child em {
+  left: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-animation-name: rotate-lt; 
+  -webkit-transform-origin: 0 50%;
+}
+
+#spin span:last-child em {
+  left: -100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-animation-name: rotate-rt; 
+  -webkit-transform-origin: 100% 50%;
+ }
+
+
+
 
 
 #spinner {

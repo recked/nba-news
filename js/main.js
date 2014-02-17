@@ -70,14 +70,14 @@ https://github.com/recked/
     //listening for conference
     var east = document.getElementById("east");
     east.addEventListener("click", function () {
-       
+
         jsonTeams("east");
         document.getElementById("in").innerHTML = "Select a team from the Eastern Conference.";
     });
-    
+
     var west = document.getElementById("west");
     west.addEventListener("click", function () {
-        
+
         jsonTeams("west");
         document.getElementById("in").innerHTML = "Select a team from the Western Conference.";
     });
@@ -134,6 +134,9 @@ https://github.com/recked/
 
     //Filling the sidebar with team names
     function fillSidebar() {
+        var loader = document.getElementById("spin");
+        loader.setAttribute("style", "display: block;");
+
         if (httpRequest.readyState === 4) {
             if (httpRequest.status === 200) {
 
@@ -143,10 +146,13 @@ https://github.com/recked/
 
                 var teamList = document.createElement("ul");
                 teamList.id = "names";
-             
+
                 var select = document.getElementById("select");
                 var start = document.getElementById("start");
-                select.removeChild(start);
+                var back = document.getElementById("back");
+                start.setAttribute("style", "display: none;");
+                back.setAttribute("style", "display: block;");
+                //select.removeChild(start);
                 select.appendChild(teamList);
 
                 //Loop through the json and put the location + name of team into list elements
@@ -167,6 +173,9 @@ https://github.com/recked/
                     //onclick of name
                     elements.addEventListener("click", checkClick(i));
                 }
+
+
+                loader.setAttribute("style", "display: none;");
 
             } else {
                 alert('Something broke.');
@@ -235,7 +244,7 @@ https://github.com/recked/
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 var about = JSON.parse(xhr.responseText);
-                
+
                 var headline = null;
                 var link = null;
                 var description = null;
@@ -282,7 +291,7 @@ https://github.com/recked/
                         var fill = document.getElementById("news");
                         fill.appendChild(articles);
                     }
-                    
+
                 }
                 var loader = document.getElementById("spinner");
                 loader.setAttribute("style", "display: none;");
@@ -295,7 +304,19 @@ https://github.com/recked/
 
 
     /*-------------------------------------------------------------*/
-    
+
+    //Go back
+    document.getElementById("back").onclick = function () {
+        
+        var select = document.getElementById("select");
+        var teams = document.getElementById("names");
+        select.removeChild(teams);
+        
+        var start = document.getElementById("start");
+        var back = document.getElementById("back");
+        start.setAttribute("style", "display: block;");
+        back.setAttribute("style", "display: none;");
+    }
     //Mobile menu
     document.getElementById("mobile").onclick = function () {
 
